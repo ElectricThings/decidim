@@ -27,6 +27,7 @@ Decidim.register_feature(:proposals) do |feature|
     settings.attribute :attachments_allowed, type: :boolean, default: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :new_proposal_help_text, type: :text, translated: true, editor: true
+    settings.attribute :new_proposal_template, type: :text, translated: true, editor: true
   end
 
   feature.settings(:step) do |settings|
