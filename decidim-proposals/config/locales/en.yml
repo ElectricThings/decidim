@@ -25,6 +25,7 @@ en:
             geocoding_enabled: Geocoding enabled
             maximum_votes_per_proposal: Maximum votes per proposal
             new_proposal_help_text: New proposal help text
+            new_proposal_template: Template text for new proposals
             official_proposals_enabled: Official proposals enabled
             proposal_answering_enabled: Proposal answering enabled
             proposal_limit: Proposal limit per user
