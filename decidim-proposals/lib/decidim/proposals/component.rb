@@ -37,6 +37,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :proposal_wizard_step_2_help_text, type: :text, translated: true, editor: true
     settings.attribute :proposal_wizard_step_3_help_text, type: :text, translated: true, editor: true
     settings.attribute :proposal_wizard_step_4_help_text, type: :text, translated: true, editor: true
+    settings.attribute :new_proposal_template, type: :text, translated: true, editor: true
   end
 
   component.settings(:step) do |settings|

@@ -65,6 +65,7 @@ en:
             comments_enabled: Comments enabled
             geocoding_enabled: Geocoding enabled
             new_proposal_help_text: New proposal help text
+            new_proposal_template: Template text for new proposals
             official_proposals_enabled: Official proposals enabled
             proposal_answering_enabled: Proposal answering enabled
             proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes

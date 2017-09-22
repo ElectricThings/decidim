@@ -10,6 +10,7 @@ module Decidim
       include FilterResource
       include Orderable
       include Paginable
+      include Decidim::TranslationsHelper
 
       helper_method :geocoded_proposals
       before_action :authenticate_user!, only: [:new, :create, :complete]
@@ -47,6 +48,10 @@ module Decidim
         if proposal_draft.present?
           redirect_to edit_draft_proposal_path(proposal_draft, component_id: proposal_draft.component.id, question_slug: proposal_draft.component.participatory_space.slug)
         else
+          unless params[:body].present?
+            params[:body] =
+              translated_attribute(current_feature.settings.new_proposal_template)
+          end
           @form = form(ProposalForm).from_params(params)
         end
       end
