@@ -9,6 +9,7 @@ module Decidim
       include FilterResource
       include Orderable
       include Paginable
+      include Decidim::TranslationsHelper
 
       helper_method :geocoded_proposals
 
@@ -43,8 +44,12 @@ module Decidim
       def new
         authorize! :create, Proposal
 
+        template =
+          translated_attribute(current_feature.settings.new_proposal_template)
         @form = form(ProposalForm).from_params(
-          attachment: form(AttachmentForm).from_params({})
+          attachment: form(AttachmentForm).from_params({
+          }),
+          body: template
         )
       end
 
