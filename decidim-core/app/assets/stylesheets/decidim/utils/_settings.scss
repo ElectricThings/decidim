@@ -82,7 +82,7 @@ $black: #1a181d;
 $white: #fff;
 $light-gray-dark: darken($light-gray, 2.5) !default;
 $body-background: $light-gray;
-$body-font-color: #3d393c;
+$body-font-color: #3d393c !default;
 $muted: lighten($body-font-color, 30) !default;
 $body-font-family: 'Source Sans Pro', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
