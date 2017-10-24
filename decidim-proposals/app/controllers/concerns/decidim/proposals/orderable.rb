@@ -21,7 +21,8 @@ module Decidim
         # Available orders based on enabled settings
         def available_orders
           @available_orders ||= begin
-            available_orders = %w(random recent)
+            #available_orders = %w(random recent)
+            available_orders = %w(random)
             available_orders << "most_voted" if most_voted_order_available?
             available_orders
           end
