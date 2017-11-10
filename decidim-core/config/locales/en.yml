@@ -1177,9 +1177,12 @@ en:
       flag_modal:
         already_reported: This content is already reported and it will be reviewed by an admin.
         close: Close
+        criteria: "The proposal doesn't meet the criteria of the call"
         description: Is this content inappropriate?
         does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
+        member_values: "I suspect the member doesn't adhere to FundAction's values"
         offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
+        proposal_values: "The content doesn't adjust to FundAction's values"
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
         title: Report inappropriate content
