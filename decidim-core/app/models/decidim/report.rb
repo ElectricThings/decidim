@@ -3,7 +3,7 @@
 module Decidim
   # A reportable can be reported one time for each user.
   class Report < ApplicationRecord
-    REASONS = %w(spam offensive does_not_belong).freeze
+    REASONS = %w(spam offensive does_not_belong proposal_values member_values criteria).freeze
 
     belongs_to :moderation, foreign_key: "decidim_moderation_id", class_name: "Decidim::Moderation"
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
