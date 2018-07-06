@@ -105,6 +105,9 @@ end
 - **decidim-generators**: Generated application not including optional gems.
 - **decidim-core**: Fix invitations form newsletter optin [\#3789](https://github.com/decidim/decidim/issues/3789)
 - **decidim-core**: Fix newsletter opt-in migration [\#4198](https://github.com/decidim/decidim/pull/4219)
+- **decidim-core**: Fix follow within search results. [\#3745](https://github.com/decidim/decidim/pull/3745)
+- **decidim-proposals**: An author should always follow their proposal. [\#3791](https://github.com/decidim/decidim/pull/3791)
+- **decidim-core**: Fix notifications sending when there's no component. [\#3792](https://github.com/decidim/decidim/pull/3792)
 
 **Removed**:
 
