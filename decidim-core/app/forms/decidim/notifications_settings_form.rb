@@ -40,5 +40,9 @@ module Decidim
     def direct_message_types
       allow_public_contact ? "all" : "followed-only"
     end
+
+    def map_model(model)
+      self.newsletter_notifications = model.newsletter_notifications_at.present?
+    end
   end
 end
