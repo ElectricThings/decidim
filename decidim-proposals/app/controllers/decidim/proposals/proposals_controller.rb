@@ -53,6 +53,7 @@ module Decidim
               translated_attribute(current_feature.settings.new_proposal_template)
           end
           @form = form(ProposalForm).from_params(params)
+          render action: "complete"
         end
       end
 
