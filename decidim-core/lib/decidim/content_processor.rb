@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'rinku'
+
 module Decidim
   # This module contains all logic related to decidim's ability for process a content.
   # Their main job is to {ContentProcessor#parse parse} or {ContentProcessor#render render}
@@ -88,13 +90,14 @@ module Decidim
     #
     # @return [String] the content processed and ready to display (it is expected to include HTML)
     def self.render(content, wrapper_tag = "p")
-      simple_format(
+      text = simple_format(
         Decidim.content_processors.reduce(content) do |result, type|
           renderer_klass(type).constantize.new(result).render
         end,
         {},
         wrapper_tag: wrapper_tag
       )
+      Rinku.auto_link text, :all, 'target="_blank"'
     end
 
     # This method overwrites the views `sanitize` method. This is required to
