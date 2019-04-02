@@ -51,6 +51,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails-i18n", "~> 5.0"
   s.add_dependency "rectify", "~> 0.11.0"
   s.add_dependency "redis", "~> 4.0"
+  s.add_dependency "rinku", "~> 2.0.5"
   s.add_dependency "rubyzip", "~> 1.2"
   s.add_dependency "sassc", "~> 1.11.0"
   s.add_dependency "sassc-rails", "~> 1.3"
