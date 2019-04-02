@@ -62,6 +62,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rectify", "~> 0.13.0"
   s.add_dependency "redis", "~> 4.1"
   s.add_dependency "request_store", "~> 1.5.0"
+  s.add_dependency "rinku", "~> 2.0.5"
   s.add_dependency "rubyzip", "~> 2.0"
   s.add_dependency "sassc", "~> 2.3.0"
   s.add_dependency "sassc-rails", "~> 2.1.2"

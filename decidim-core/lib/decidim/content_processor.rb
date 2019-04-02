@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'rinku'
+
 module Decidim
   # This module contains all logic related to decidim's ability for process a content.
   # Their main job is to {ContentProcessor#parse parse} or {ContentProcessor#render render}
@@ -97,11 +99,12 @@ module Decidim
     #
     # @return [String] the content processed and ready to display (it is expected to include HTML)
     def self.render(content, wrapper_tag = "p", options = {})
-      simple_format(
+      text = simple_format(
         render_without_format(content, options),
         {},
         wrapper_tag: wrapper_tag
       )
+      Rinku.auto_link text, :all, 'target="_blank"'
     end
 
     # This calls all registered processors one after the other and returns
