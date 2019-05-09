@@ -38,8 +38,9 @@ module Decidim
       #
       # @return [String] the content with the valid mentions replaced by a global id.
       def rewrite
-        rewrited_content = parse_for_urls(content)
-        parse_for_ids(rewrited_content)
+        #rewrited_content = parse_for_urls(content)
+        #parse_for_ids(rewrited_content)
+        parse_for_ids(content)
       end
 
       # (see BaseParser#metadata)
@@ -90,8 +91,11 @@ module Decidim
       def find_proposal_by_id(id)
         if id.present?
           spaces = Decidim.participatory_space_manifests.flat_map do |manifest|
-            manifest.participatory_spaces.call(context[:current_organization]).public_spaces
+            if spaces = manifest.participatory_spaces
+              spaces.call(context[:current_organization]).public_spaces
+            end
           end
+          spaces.compact!
           components = Component.where(participatory_space: spaces).published
           Decidim::Proposals::Proposal.where(component: components).find_by(id: id)
         end
