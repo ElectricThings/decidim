@@ -76,7 +76,8 @@ module Decidim
       end
 
       def default_filter
-        "active"
+        #"active"
+        "all"
       end
     end
   end
