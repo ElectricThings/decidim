@@ -97,9 +97,9 @@ module Decidim
       end
 
       def default_date_filter
-        return "active" if published_processes.any?(&:active?)
-        return "upcoming" if published_processes.any?(&:upcoming?)
-        return "past" if published_processes.any?(&:past?)
+        #return "active" if published_processes.any?(&:active?)
+        #return "upcoming" if published_processes.any?(&:upcoming?)
+        #return "past" if published_processes.any?(&:past?)
 
         "all"
       end
