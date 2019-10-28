@@ -10,6 +10,9 @@ module Decidim
       # Public: Initializes the serializer with a collection of Answers.
       def initialize(answers)
         @answers = answers
+        unless @answers.respond_to?(:each_with_index)
+          @answers = Array(@answers)
+        end
       end
 
       # Public: Exports a hash with the serialized data for the user answers.
