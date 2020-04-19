@@ -11,8 +11,9 @@ module Decidim
       attribute :body_template, String
       attribute :user_group_id, Integer
 
-      validates :title, :body, presence: true, etiquette: true
-      validates :title, length: { in: 15..150 }
+      validates :body, presence: true, etiquette: true
+      validates :title, presence: true
+      validates :title, length: { in: 5..150 }
       validates :body, proposal_length: {
         minimum: 15,
         maximum: ->(record) { record.component.settings.proposal_length }
