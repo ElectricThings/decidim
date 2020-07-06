@@ -12,7 +12,11 @@ module Decidim
       translatable_attribute :content, String
 
       def name
-        multi_translation("activerecord.models.#{manifest.model_class_name.underscore}.other")
+        if manifest.model_class_name
+          multi_translation("activerecord.models.#{manifest.model_class_name.underscore}.other")
+        else
+          manifest.name
+        end
       end
 
       private
