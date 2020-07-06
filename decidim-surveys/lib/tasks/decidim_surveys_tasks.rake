@@ -83,7 +83,7 @@ namespace :decidim_surveys do
               )
             end
 
-            answer.save!
+            answer.save!(validate: false)
           end
         end
       end
