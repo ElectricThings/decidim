@@ -10,11 +10,15 @@ module Decidim
       delegate :url, to: :banner_image, prefix: true
 
       def hero_image_url
-        URI.join(decidim.root_url(host: process.organization.host), process.hero_image_url).to_s
+        if process.hero_image_url
+          URI.join(decidim.root_url(host: process.organization.host), process.hero_image_url).to_s
+        end
       end
 
       def banner_image_url
-        URI.join(decidim.root_url(host: process.organization.host), process.banner_image_url).to_s
+        if process.banner_image_url
+          URI.join(decidim.root_url(host: process.organization.host), process.banner_image_url).to_s
+        end
       end
 
       def process
