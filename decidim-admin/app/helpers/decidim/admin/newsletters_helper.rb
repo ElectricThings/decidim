@@ -98,9 +98,8 @@ module Decidim
 
       def organization_participatory_space(manifest_name)
         @organization_participatory_spaces ||= {}
-        @organization_participatory_spaces[manifest_name] ||= Decidim
-                                                              .find_participatory_space_manifest(manifest_name)
-                                                              .participatory_spaces.call(current_organization)
+        return unless spaces = Decidim.find_participatory_space_manifest(manifest_name).participatory_spaces
+        @organization_participatory_spaces[manifest_name] ||= spaces.call(current_organization)
                                                               .published
                                                               .sort_by { |space| [space.closed? ? 1 : 0, space.title[current_locale]] }
       end
