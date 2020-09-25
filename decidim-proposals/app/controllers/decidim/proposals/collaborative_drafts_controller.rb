@@ -46,6 +46,7 @@ module Decidim
         @step = :step_1
 
         @form = form(CollaborativeDraftForm).from_params(
+          body: ActionController::Base.helpers.strip_tags(translated_proposal_body_template),
           attachment: form(AttachmentForm).from_params({})
         )
       end
@@ -192,6 +193,10 @@ module Decidim
         else
           ["global"] + current_component.participatory_space.scopes.map { |scope| scope.id.to_s }
         end
+      end
+
+      def translated_proposal_body_template
+        translated_attribute component_settings.new_proposal_body_template
       end
     end
   end
