@@ -9,9 +9,10 @@ module Decidim
       delegate :url, to: :hero_image, prefix: true
 
       def hero_image_url
-        return if process_group.blank?
+        url = process_group&.hero_image_url
+        return if url.blank?
 
-        URI.join(decidim.root_url(host: process_group.organization.host), process_group.try(:hero_image_url)).to_s
+        URI.join(decidim.root_url(host: process_group.organization.host), url).to_s
       end
 
       def process_group
