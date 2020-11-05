@@ -35,6 +35,10 @@ module Decidim
       ("<p><strong>#{subject}</strong></p>" + body).html_safe
     end
 
+    def resource_url
+      nil
+    end
+
     def resource_path
       nil
     end
