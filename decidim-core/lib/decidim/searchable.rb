@@ -55,9 +55,18 @@ module Decidim
       end
 
       after_destroy do |searchable|
+        begin
         if self.class.search_resource_fields_mapper
           org = self.class.search_resource_fields_mapper.retrieve_organization(searchable)
           searchable.searchable_resources.by_organization(org.id).destroy_all
+        end
+        rescue
+          msg = "error in searchable after_destroy:\n#{searchable.inspect}"
+          if defined?(Airbrake)
+            Airbrake.notify msg
+          else
+            puts msg
+          end
         end
       end
       # after_create and after_update callbacks are dynamically setted in `searchable_fields` method.
@@ -98,6 +107,13 @@ module Decidim
           end
         elsif searchables_in_org.any?
           searchables_in_org.destroy_all
+        end
+      rescue
+        msg = "error in try_update_index_for_search_resource:\n#{self.inspect}"
+        if defined?(Airbrake)
+          Airbrake.notify msg
+        else
+          puts msg
         end
       end
 
