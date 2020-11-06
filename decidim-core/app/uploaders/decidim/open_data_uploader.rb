@@ -14,5 +14,10 @@ module Decidim
 
       default_path
     end
+
+    # overridden to prevent ApplicationUploader#validate_inside_organization
+    # from raising an error
+    def validate_inside_organization
+    end
   end
 end
