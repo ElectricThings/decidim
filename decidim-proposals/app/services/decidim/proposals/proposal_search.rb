@@ -12,6 +12,7 @@ module Decidim
       # page        - The page number to paginate the results.
       # per_page    - The number of proposals to return per page.
       def initialize(options = {})
+        options[:state] = Array.wrap(options[:state]) if options[:state]
         base = options[:state]&.member?("withdrawn") ? Proposal.withdrawn : Proposal.except_withdrawn
         super(base, options)
       end
